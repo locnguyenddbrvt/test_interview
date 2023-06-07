@@ -1,0 +1,35 @@
+.main {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: aqua; */
+}
+.nav {
+  width: 150px;
+  height: 100vh;
+  background-color: #000;
+}
+.nav ul li {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #585858;
+}
+.nav ul li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #585858;
+}
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+.content_3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 1510px;
+  margin-top: 40px;
+  grid-gap: 50px;
+}
