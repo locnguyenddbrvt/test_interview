@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [openNav, setOpenNav] = useState(false);
+
   return (
     <main className={styles.main}>
-      <div className={styles.nav}>
+      <div className={`${styles.nav}`}>
         <ul style={{ color: "white" }}>
           <li>Home</li>
           <li>Service</li>
@@ -13,32 +18,37 @@ export default function Home() {
           <li>Contact</li>
         </ul>
       </div>
+      <div className={`${styles.nav_mobile} ${openNav && styles.hidden}`}>
+        <ul style={{ color: "white" }}>
+          <li>Home</li>
+          <li>Service</li>
+          <li>News</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div
+        className={styles["btn-open-nav"]}
+        onClick={() => setOpenNav((b) => !b)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+        >
+          <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+        </svg>
+      </div>
       <div className={styles["content"]}>
-        <div>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "20px",
-              marginBottom: "30px",
-            }}
-          >
+        <div className={styles["content-container"]}>
+          <div className={styles.logo}>
             <Image width={310} height={122} alt="logo" src="/logoNCC 1.png" />
           </div>
-          <div
-            style={{
-              width: "1510px",
-              backgroundColor: "#ddd",
-              padding: "38px",
-              textAlign: "center",
-              // border: "2px solid pink",
-            }}
-          >
+          <div className={styles["container_text"]}>
             <h3 style={{ marginBottom: "18px" }}>
               Lorem ipsum dolor sit amet consectetur.
             </h3>
-            <p style={{ maxWidth: "972px", margin: "0 auto" }}>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptatum, eligendi ad commodi sed cum ipsam natus unde
               consequatur ipsum, ab numquam nisi id deserunt eveniet voluptas
@@ -57,7 +67,6 @@ export default function Home() {
                     <h3 style={{ marginBottom: "18px" }}>
                       Lorem ipsum dolor sit amet consectetur.
                     </h3>
-                    <div></div>
                     <p>
                       <Image
                         width={128}
@@ -82,15 +91,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div
-          style={{
-            height: "79px",
-            borderTop: "1px solid #ddd",
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        <div className={styles.footer}>
           <p style={{ marginLeft: "129px" }}>Copyright © 2021</p>
         </div>
       </div>
